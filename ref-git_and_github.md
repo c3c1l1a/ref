@@ -1,0 +1,5 @@
+.gitignore 
+
+ignore directory
+----------------
+directory/
