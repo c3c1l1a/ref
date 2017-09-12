@@ -69,11 +69,8 @@ Create stats/Tests/FirstTest.php and add the following
 
 Step 8:
 Create stats/Baseball.php and add the following 
-
 	<?php
-
 	namespace stats;
-
 	class Baseball{
 		public function calc_avg($ab, $hits){
 			if ($ab == 0){
@@ -88,7 +85,7 @@ Create stats/Baseball.php and add the following
 			if (!($total = $ab + $bb + $hp + $sac)){
 				$obp = "0.000";
 			} else {
-				$obp = number_format(($hits + $bb + $hp + $sac) / $ab, 3)
+				$obp = number_format(($hits + $bb + $hp + $sac) / $ab, 3);
 			}
 			return $obp;
 		}
@@ -107,13 +104,32 @@ Create stats/Baseball.php and add the following
 			$ops = $slg + $obp;
 			return $ops; 
 		}
-	}
+	} ?>
 
 Step 9: 
 Ask yourself if these functions are testable and do they need to be refactored into smaller chunks?
 
 Step 10:
+Create stats/Tests/BaseballTest.php and add the following 
 
+	<?php 
+	namespace stats\Tests;
+
+	require_once __DIR__."/../Baseball.php";
+
+	use stats\Baseball;
+	use PHPUnit\Framework\TestCase;
+
+	class BaseballTest extends TestCase{
+		public function testCalcAvgEquals(){
+			$atbats = 389;
+			$hits = 129;
+			$baseball = new Baseball();
+			$result = $baseball->calc_avg($atbats, $hits);
+			$expectedresult = $hits/$atbats;
+			$this->assertEquals($expectedresult, $result); 
+		}
+	} ?>
 
 
 
