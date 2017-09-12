@@ -109,6 +109,11 @@ Create stats/Baseball.php and add the following
 		}
 	}
 
+Step 9: 
+Ask yourself if these functions are testable and do they need to be refactored into smaller chunks?
+
+Step 10:
+
 
 
 
