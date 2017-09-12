@@ -55,9 +55,17 @@ Step 6:
 	mkdir stats/Tests 
 
 Step 7: 
-Create FirstStep.php and add the following 
+Create FirstTest.php and add the following 
 
-GOT AN ERROR 
+	<?php 
+	namespace stats\Tests;
+	use PHPUnit\Framework\TestCase;
+
+	class FirstTest extends TestCase{
+		public function testUselessness(){
+			$this->assertTrue(true);
+		}
+	}
 
 
 
